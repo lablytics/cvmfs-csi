@@ -1,0 +1,23 @@
+extraConfigMaps:
+  cvmfs-csi-default-local:
+    default.local: |
+      CVMFS_HTTP_PROXY="DIRECT"
+      CVMFS_QUOTA_LIMIT="4000"
+      CVMFS_USE_GEOAPI="yes"
+      CVMFS_AUTOFS_TIMEOUT=3600
+      CVMFS_DEBUGLOG=/tmp/cvmfs.log
+
+      {{- if .Values.cache.alien.enabled }}
+      CVMFS_ALIEN_CACHE={{ .Values.cache.alien.location }}
+      # When alien cache is used, CVMFS does not control the size of the cache.
+      CVMFS_QUOTA_LIMIT=-1
+      # Whether repositories should share a cache directory or each have their own.
+      CVMFS_SHARED_CACHE=no
+      {{- end -}}
+
+automountHostPath: /cvmfs
+kubeletDirectory: /var/snap/microk8s/common/var/lib/kubelet
+
+automountStorageClass:
+  create: true
+  name: cvmfs

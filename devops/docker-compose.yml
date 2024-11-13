@@ -1,0 +1,15 @@
+version: '3'
+services:
+  devops:
+    container_name: devops-workspace
+    build:
+      context: .
+      args:
+        ACCESS_KEY: "${ACCESS_KEY}"
+        SECRET_KEY: "${SECRET_KEY}"
+        REGION: "${REGION}"
+    volumes:
+    - ".:/workspace"
+    entrypoint: "sh"
+    tty: true
+    stdin_open: true

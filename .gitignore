@@ -17,3 +17,14 @@ Session.vim
 *.orig
 *.patch
 *.rej
+
+.terraform.lock.hcl
+.terraform.tfstate.lock.info
+config-public
+*.pem
+*-plan
+*.tfstate
+*.tfvars
+.env
+.terraform
+
