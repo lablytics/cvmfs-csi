@@ -17,7 +17,7 @@ INSTANCE_PUBLIC_IP=$(aws ec2 describe-instances \
     --output text)
 
 
-FILES=("galaxy-values.yaml" "galaxy-pvc.yaml", "galaxy-helm-deps-values.yaml")
+FILES=("galaxy-values.yaml" "galaxy-pvc.yaml" "galaxy-services.sh")
 for f in "${FILES[@]}"
 do
   rsync -avz -e "ssh -i $KEY_PAIR_PATH" "$f" ubuntu@$INSTANCE_PUBLIC_IP:/home/ubuntu/

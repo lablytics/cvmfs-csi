@@ -8,8 +8,8 @@ function install_cvmfs(){
 # Install Galaxy dependencies -> This is new and does not work out of the box as the authors of Galaxy expected. 
 # There needs to better documentation on how to install Galaxy on Kubernetes with the new version that is deployed.
 function install_galaxy_deps(){
-    # git clone https://github.com/galaxyproject/galaxy-helm-deps.git /home/ubuntu/galaxy-helm-deps
-    # cd /home/ubuntu/galaxy-helm-deps/galaxy-deps
+    git clone https://github.com/galaxyproject/galaxy-helm-deps.git /home/ubuntu/galaxy-helm-deps
+    cd /home/ubuntu/galaxy-helm-deps/galaxy-deps
     # sudo helm dependency build
     # sudo microk8s helm3 install -n kube-system galaxy-project /home/ubuntu/galaxy-helm-deps/galaxy-deps --set cvmfs.storageClassName=cvmfs #--set cvmfs.deploy=false
 }
