@@ -1,0 +1,6 @@
+cvmfs:
+  deploy: false
+  storageClassName: "cvmfs"
+
+persistence:
+  existingClaim: "galaxy-pvc"

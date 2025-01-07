@@ -9,7 +9,8 @@ services:
         SECRET_KEY: "${SECRET_KEY}"
         REGION: "${REGION}"
     volumes:
-    - ".:/workspace"
+      - ".:/workspace"
+      - "${LENS_CONFIG_PATH}:/configs"
     entrypoint: "sh"
     tty: true
     stdin_open: true
